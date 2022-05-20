@@ -19,14 +19,26 @@
         const targetNum = Math.floor(Math.random() * maximum) + 1;
 
         let guess = parseInt(prompt("enter your first guess"));
-        while (guess !== targetNum) {
+        let attempts = 1;//bare minimum of attempts
+
+        while (parseInt(guess) !== targetNum) {
+            if (guess === 'q') break;
+            attempts++;
             if (guess > targetNum) {
-                prompt("Too high, enter a new number:");
+                guess = prompt("Too high! Enter a new number: " + targetNum);
             }
+
             else {
-                prompt("Too high, enter a new number:");
+                guess = prompt("Too low! Enter a new number:" + targetNum);
             }
         }
+        if (guess == 'q') {
+            alert('Okay, bye');
+        }
+        else {
+            alert('Correct! Number of guesses ' + attempts);
+        }
+
 
     </script>
 </body>
